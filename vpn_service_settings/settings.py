@@ -24,8 +24,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
-    "rest_framework_simplejwt",
     "user",
 ]
 
@@ -44,7 +42,7 @@ ROOT_URLCONF = "vpn_service_settings.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -109,10 +107,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Default user
 AUTH_USER_MODEL = "user.User"
 
-# REST settings
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    )
-}
+LOGIN_REDIRECT_URL = "/"
